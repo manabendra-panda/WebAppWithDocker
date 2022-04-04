@@ -7,6 +7,8 @@ trigger:
 
 variables:
   vmImageName: 'windows-latest'
+  appName: ''
+  containers: ''
 
 stages:
 - stage: Deploy
@@ -19,6 +21,6 @@ stages:
      - task: AzureWebAppContainer@1
        inputs:
          azureSubscription: 'DemoServicePrinciple'
-         appName: '<App name>'
-         containers: '<container name>.azurecr.io/webapp:latest'
+         appName: $(appName)
+         containers: $(containers)'.azurecr.io/webapp:latest'
     
