@@ -1,0 +1,24 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- none
+
+variables:
+  vmImageName: 'windows-latest'
+
+stages:
+- stage: Deploy
+  displayName: Deploy to App Service
+  jobs:
+  - job: deploy
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+     - task: AzureWebAppContainer@1
+       inputs:
+         azureSubscription: 'DemoServicePrinciple'
+         appName: 'democontainerapp31'
+         containers: 'democontainer24.azurecr.io/webapp:latest'
+    
