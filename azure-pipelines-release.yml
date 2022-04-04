@@ -19,6 +19,6 @@ stages:
      - task: AzureWebAppContainer@1
        inputs:
          azureSubscription: 'DemoServicePrinciple'
-         appName: 'democontainerapp31'
-         containers: 'democontainer24.azurecr.io/webapp:latest'
+         appName: '<App name>'
+         containers: '<container name>.azurecr.io/webapp:latest'
     
